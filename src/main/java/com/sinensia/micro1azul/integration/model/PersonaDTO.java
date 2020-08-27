@@ -5,17 +5,24 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "PERSONAS")
-public abstract class PersonaDAO implements Serializable{
+public abstract class PersonaDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -23,6 +30,7 @@ public abstract class PersonaDAO implements Serializable{
 	private String DNI;
 	private String nombre;
 	private String Apellidos;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaAlta;
 	
@@ -41,7 +49,7 @@ public abstract class PersonaDAO implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonaDAO other = (PersonaDAO) obj;
+		PersonaDTO other = (PersonaDTO) obj;
 		if (DNI == null) {
 			if (other.DNI != null)
 				return false;

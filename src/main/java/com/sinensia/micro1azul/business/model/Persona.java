@@ -3,32 +3,19 @@ package com.sinensia.micro1azul.business.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import lombok.Data;
 
 
 @Data
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "PERSONAS")
+
 public abstract class Persona implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	private String DNI;
 	
+	private String DNI;
 	private String nombre;
 	private String Apellidos;
-	
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaAlta;
 	
 	@Override

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class DireccionDAO {
+public class DireccionDTO {
 	
 	private String direccion;
 	private String poblacion;
