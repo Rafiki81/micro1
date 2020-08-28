@@ -1,5 +1,8 @@
 package com.sinensia.micro1azul.business.service.implementation;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.transaction.Transactional;
 
 import org.dozer.DozerBeanMapper;
@@ -23,15 +26,26 @@ public class PedidoServicesImpl implements PedidoServices {
 	@Transactional
 	@Override
 	public Pedido crear(Pedido pedido) {
-		System.out.println(pedido);
+
 		PedidoDTO pedidoDTO = mapper.map(pedido, PedidoDTO.class);
-		
-		System.out.println(pedidoDTO);
-		
 		pedidoDTO = pedidoRepository.save(pedidoDTO);
-		System.out.println(pedidoDTO);
 		return mapper.map(pedidoDTO, Pedido.class);
 
+	}
+
+	@Override
+	@Transactional
+	public List<Pedido> crearTodos(List<Pedido> pedidos) {
+		
+		List<PedidoDTO> listaPedidoDTO = pedidos.stream()
+				.map(p -> mapper.map(p, PedidoDTO.class))
+				.collect(Collectors.toList());
+		
+		List<PedidoDTO> ListaSaved = pedidoRepository.saveAll(listaPedidoDTO);
+		
+		return ListaSaved.stream()
+				.map(p -> mapper.map(p, Pedido.class))
+				.collect(Collectors.toList());
 	}
 
 }
