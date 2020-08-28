@@ -23,13 +23,13 @@ public class PedidoServicesImpl implements PedidoServices {
 	@Transactional
 	@Override
 	public Pedido crear(Pedido pedido) {
-		
+		System.out.println(pedido);
 		PedidoDTO pedidoDTO = mapper.map(pedido, PedidoDTO.class);
 		
 		System.out.println(pedidoDTO);
 		
 		pedidoDTO = pedidoRepository.save(pedidoDTO);
-		
+		System.out.println(pedidoDTO);
 		return mapper.map(pedidoDTO, Pedido.class);
 
 	}
