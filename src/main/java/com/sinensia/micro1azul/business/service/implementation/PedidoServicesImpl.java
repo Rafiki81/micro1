@@ -48,4 +48,15 @@ public class PedidoServicesImpl implements PedidoServices {
 				.collect(Collectors.toList());
 	}
 
+	@Override
+	public List<Pedido> ListarPedidos() {
+		
+		List<PedidoDTO> ListaPedidos = pedidoRepository.findAll();
+		
+		
+		return ListaPedidos.stream()
+				.map(p -> mapper.map(p, Pedido.class))
+				.collect(Collectors.toList());
+	}
+
 }

@@ -9,5 +9,7 @@ public interface PedidoServices {
 	public Pedido crear(Pedido pedido);
 	
 	public List<Pedido> crearTodos (List<Pedido> pedidos);
+	
+	public List<Pedido> ListarPedidos();
 
 }
