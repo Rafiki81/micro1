@@ -1,8 +1,6 @@
 package com.sinensia.micro1azul.integration.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -27,5 +25,38 @@ public class CodigoProductoDTO implements Serializable{
 	@Column(name = "CODIGO_PRODUCTO")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long producto;
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CodigoProductoDTO other = (CodigoProductoDTO) obj;
+		if (producto == null) {
+			if (other.producto != null)
+				return false;
+		} else if (!producto.equals(other.producto))
+			return false;
+		if (proveedor == null) {
+			if (other.proveedor != null)
+				return false;
+		} else if (!proveedor.equals(other.proveedor))
+			return false;
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
+		result = prime * result + ((proveedor == null) ? 0 : proveedor.hashCode());
+		return result;
+	}
+	
+	
 	
 }

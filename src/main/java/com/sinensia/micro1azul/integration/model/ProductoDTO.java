@@ -1,16 +1,11 @@
 package com.sinensia.micro1azul.integration.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;

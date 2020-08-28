@@ -2,7 +2,7 @@ package com.sinensia.micro1azul.presentation.controllers;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +35,7 @@ public class PedidosController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
 	@Autowired
 	private PedidoRepository pedidoRepository;
 	
