@@ -36,10 +36,12 @@ public class PedidosController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Pedido>> listar(){
+	public ResponseEntity<List<Pedido>> listarPedidos(){
 		
 		return new ResponseEntity<List<Pedido>>(pedidoService.ListarPedidos(), HttpStatus.OK);
 		
 	}
+	
+
 	
 }
